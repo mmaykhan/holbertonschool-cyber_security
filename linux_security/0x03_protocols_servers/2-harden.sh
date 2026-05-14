@@ -1,2 +1,2 @@
 #!/bin/bash
-find / -xdev -type d -perm -0002 2>/dev/null | tee /dev/tty | xargs chmod o-w 2>/dev/null
+find / -type d -perm -0002 -exec chmod o-w {} \; -print 2>/dev/null
