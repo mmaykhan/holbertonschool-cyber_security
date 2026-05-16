@@ -1,3 +1,3 @@
 #!/bin/bash
 # Script to set up basic iptables firewall rules that block all incoming traffic except SSH
-iptables -F && iptables -P INPUT DROP && iptables -P FORWARD DROP && iptables -P OUTPUT ACCEPT && iptables -A INPUT -i lo -j ACCEPT && iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT && iptables -A INPUT -p tcp --dport 22 -j ACCEPT && ip6tables -F && ip6tables -P INPUT DROP && ip6tables -P FORWARD DROP && ip6tables -P OUTPUT ACCEPT && ip6tables -A INPUT -i lo -j ACCEPT && ip6tables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT && ip6tables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -F; iptables -X; iptables -P INPUT DROP; iptables -P FORWARD DROP; iptables -P OUTPUT ACCEPT; iptables -A INPUT -i lo -j ACCEPT; iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT; iptables -A INPUT -p tcp --dport 22 -j ACCEPT
