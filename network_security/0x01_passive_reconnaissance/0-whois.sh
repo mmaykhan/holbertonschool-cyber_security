@@ -1,37 +1,2 @@
 #!/bin/bash
-awk 'BEGIN {print "Registrant Name,Holberton Inc
-Registrant Organization,Holberton Inc
-Registrant Street,5670 Wilshire Blvd suite 1802 
-Registrant City,Los Angeles
-Registrant State/Province,
-Registrant Postal Code,90036
-Registrant Country,US
-Registrant Phone,+1.4156227634
-Registrant Phone Ext:,
-Registrant Fax,
-Registrant Fax Ext:,
-Registrant Email,7da97d10931ddb501d08b8f88c7384bc-37846707@contact.gandi.net
-Admin Name,Holberton Inc
-Admin Organization,Holberton Inc
-Admin Street,5670 Wilshire Blvd Suite 1802 
-Admin City,Los Angeles
-Admin State/Province,California
-Admin Postal Code,90036
-Admin Country,US
-Admin Phone,+1.4153580819
-Admin Phone Ext:,
-Admin Fax,
-Admin Fax Ext:,
-Admin Email,624a82de74a4fa2b64fb39bbe08b290d-37876671@contact.gandi.net
-Tech Name,Holberton Inc
-Tech Organization,Holberton Inc
-Tech Street,5670 Wilshire Blvd Suite 1802 
-Tech City,Los Angeles
-Tech State/Province,California
-Tech Postal Code,90036
-Tech Country,US
-Tech Phone,+1.4153580819
-Tech Phone Ext:,
-Tech Fax,
-Tech Fax Ext:,
-Tech Email,2c420b43d982c37b7621f2015f3e107b-37876677@contact.gandi.net"}' > $1.csv
+whois $1 | awk -F: 'BEGIN {split("Name,Organization,Street,City,State/Province,Postal Code,Country,Phone,Phone Ext,Fax,Fax Ext,Email", f, ","); split("Registrant,Admin,Tech", p, ",")} {idx=index($0,":"); if(idx>0){k=substr($0,1,idx-1); v=substr($0,idx+1); gsub(/^[ 	]+|[ 	]+$/, "", k); gsub(/^[ 	]+|[ 	]+$/, "", v); gsub(//, "", v); data[tolower(k)]=v}} END {for(i=1;i<=3;i++){for(j=1;j<=12;j++){kn1=tolower(p[i]" "f[j]); kn2=kn1; gsub(/ /,"-",kn2); kn3=tolower(p[i]" contact "f[j]); val=data[kn1]!=""?data[kn1]:(data[kn2]!=""?data[kn2]:data[kn3]); if(f[j]=="State/Province"&&val=="")val=data[tolower(p[i]" state")]!=""?data[tolower(p[i]" state")]:data[tolower(p[i]" province")]; if(f[j]=="Postal Code"&&val=="")val=data[tolower(p[i]" postalcode")]; fn=f[j]; if(fn~/Ext$/) fn=fn":"; if(f[j]=="Street") val=val" "; print p[i]" "fn "," val}}}' > $1.csv
