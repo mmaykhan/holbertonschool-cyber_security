@@ -1,2 +1,2 @@
 #!/bin/bash
-dig @$1 passive.hbtn txt
+dig @$1 passive.hbtn TXT
