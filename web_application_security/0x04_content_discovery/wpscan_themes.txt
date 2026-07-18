@@ -1,0 +1,77 @@
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.28
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[32m[+][0m URL: http://web0x04.hbtn/ [10.42.57.185]
+[32m[+][0m Started: Sat Jul 18 06:59:08 2026
+
+Interesting Finding(s):
+
+[32m[+][0m Headers
+ | Interesting Entries:
+ |  - Server: nginx/1.22.1
+ |  - X-Secret-Flag: 0e1e061905889efd7aac8ddc1fd8c082
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[32m[+][0m robots.txt found: http://web0x04.hbtn/robots.txt
+ | Found By: Robots Txt (Aggressive Detection)
+ | Confidence: 100%
+
+[32m[+][0m XML-RPC seems to be enabled: http://web0x04.hbtn/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[32m[+][0m WordPress readme found: http://web0x04.hbtn/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[32m[+][0m The external WP-Cron seems to be enabled: http://web0x04.hbtn/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[32m[+][0m WordPress version 6.5.2 identified (Insecure, released on 2024-04-09).
+ | Found By: Rss Generator (Passive Detection)
+ |  - http://web0x04.hbtn/feed/, <generator>https://wordpress.org/?v=6.5.2</generator>
+ |  - http://web0x04.hbtn/comments/feed/, <generator>https://wordpress.org/?v=6.5.2</generator>
+
+[32m[+][0m WordPress theme in use: twentytwentyfour
+ | Location: http://web0x04.hbtn/wp-content/themes/twentytwentyfour/
+ | Last Updated: 2026-05-20T00:00:00.000Z
+ | Readme: http://web0x04.hbtn/wp-content/themes/twentytwentyfour/readme.txt
+ | [33m[!][0m The version is out of date, the latest version is 1.5
+ | Style URL: http://web0x04.hbtn/wp-content/themes/twentytwentyfour/style.css
+ | Style Name: Twenty Twenty-Four
+ | Style URI: https://wordpress.org/themes/twentytwentyfour/
+ | Description: Twenty Twenty-Four is designed to be flexible, versatile and applicable to any website. Its collecti...
+ | Author: the WordPress team
+ | Author URI: https://wordpress.org
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ | Confirmed By: Urls In 404 Page (Passive Detection)
+ |
+ | Version: 1.1 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://web0x04.hbtn/wp-content/themes/twentytwentyfour/style.css, Match: 'Version: 1.1'
+
+
+Scan Aborted: Canceled by User
