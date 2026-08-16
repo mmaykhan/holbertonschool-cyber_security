@@ -1,7 +1,5 @@
 # Web Application Forensics
-
 This directory contains bash scripts for analyzing system logs (`auth.log`, `dmesg`) to investigate web application security incidents and attacker activity.
-
 ## Tasks
 * `0-service.sh`: Identifies the service targeted by attackers.
 * `1-operating.sh`: Extracts the operating system version from dmesg logs.
