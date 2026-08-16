@@ -1,0 +1,2 @@
+index.php           [36m (Status: 301)[0m [Size: 0][34m [--> http://web0x04.hbtn/][0m
+wp-content          [36m (Status: 301)[0m [Size: 169][34m [--> http://web0x04.hbtn/wp-content/][0m
